@@ -95,9 +95,11 @@ section[id] { scroll-margin-top: 72px; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(43,56,66,0.94) 0%, rgba(43,56,66,0.82) 38%, rgba(43,56,66,0) 72%); }
 .hero-mark { position: absolute; z-index: 1; right: -30px; bottom: -50px; width: min(420px, 55vw); opacity: 0.45; pointer-events: none; }
 .hero-mark path { fill: var(--sec); }
-.hero .wrap { position: relative; z-index: 2; padding-block: 76px 84px; min-height: 380px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 38px; }
+.hero .wrap { position: relative; z-index: 2; padding-block: 76px 84px; min-height: 380px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 22px; }
+body.ann .hero .wrap { gap: 42px; }
 .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 800; max-width: 640px; }
-.hero .lead { font-size: 18px; line-height: 1.6; max-width: 540px; color: rgba(255,255,255,0.92); }
+.hero .tagline { font-size: 18px; font-weight: 600; line-height: 1.5; max-width: 560px; }
+.hero .hero-text { font-size: 16px; line-height: 1.65; max-width: 560px; color: rgba(255,255,255,0.9); }
 .hero .btn { background: var(--btn-bg); border-color: var(--btn-bg); color: var(--btn-fg); }
 .hero .btn:hover { filter: brightness(0.92); color: var(--btn-fg); }
 .hero .btn.ghost { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
@@ -149,28 +151,28 @@ body.ann .fld::before { content: attr(data-label); position: absolute; left: -2p
 .idx code { font-size: 13px; color: var(--muted); }
 @media (max-width: 720px) { .hero .wrap { padding-block: 52px 60px; } .cols { grid-template-columns: 1fr; } .charter-logo { justify-self: start; } .page { padding-block-end: 110px; } }
 
-.site-footer { position: relative; z-index: 1; margin-top: 0; }
-.foot-main { position: relative; background: var(--slate); color: #ffffff; padding-block: 80px 44px; text-align: center; }
-.foot-main .wrap { display: flex; flex-direction: column; align-items: center; gap: 36px; }
-.foot-badge { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); width: 132px; height: 148px; }
-.foot-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 40px; font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; }
-.foot-contact a { text-decoration: none; }
-.foot-contact .tel { color: #ffffff; }
-.foot-contact .mail { color: var(--teal); }
-.foot-contact a:hover { text-decoration: underline; }
-.foot-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 42px; font-size: 17px; font-weight: 700; }
-.foot-nav a { color: #ffffff; text-decoration: none; }
-.foot-nav a:hover { color: var(--teal); }
-.foot-legal { font-size: 15px; line-height: 1.7; max-width: 880px; }
-.foot-base { background: var(--bg); color: var(--muted); font-size: 14px; padding-block: 24px; }
-.foot-base .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; }
 .foot-base nav { display: flex; gap: 24px; }
 .foot-base a { color: var(--muted); text-decoration: none; }
 .foot-base a:hover { color: var(--fg); text-decoration: underline; }
 
+@media (max-width: 720px) {
+  .sec, .dark-band { padding-block: 52px; }
+  .hero .wrap { padding-block: 48px 56px; }
+  .steps li::after { display: none; }
+  .slide { aspect-ratio: 4 / 3; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
 </style>
 </head>
 <body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="https://lclawards.co.uk/" aria-label="LCL Awards home">
+      <svg viewBox="0 0 62 72" fill="none" aria-hidden="true"><path d="M31 3 56 17v30L31 61 6 47V17Z" stroke="#ffffff" stroke-width="5"/><path d="M17 56l14 8 14-8" stroke="#16AD97" stroke-width="5"/><text x="31" y="39" text-anchor="middle" font-family="Figtree, sans-serif" font-size="19" font-weight="800" fill="#ffffff">LCL</text></svg>
+      <span>AWARDS</span>
+</style>
 <div class="topbar"><div class="wrap">
   <span><a href="./">All mockups</a> &nbsp;&middot;&nbsp; <b>Design mockup</b> &nbsp;New hero pattern applied to Learner Zone</span>
   <button type="button" id="annToggle" aria-pressed="true">Annotations on</button>
@@ -204,7 +206,8 @@ body.ann .fld::before { content: attr(data-label); position: absolute; left: -2p
   <svg class="hero-mark" viewBox="0 0 815.99 594.16" aria-hidden="true"><path d="M816,0,172.42,371.57,0,272V494.62l172.42,99.54L816,222.57Z"/></svg>
   <div class="wrap">
     <h1 class="fld" data-label="Hero Title · same as page title (H1)">Learner Zone</h1>
-    <p class="lead fld" data-label="Hero Text">Helping you make the right training choices. Whether you are starting a new career, meeting legal requirements or re-training in gas, oil, electrics, plumbing or renewables, this section brings together everything you need to choose the right qualification and find an approved centre near you.</p>
+    <p class="tagline fld" data-label="Hero Tagline · optional, hidden when empty">Helping you make the right training choices</p>
+    <p class="hero-text fld" data-label="Hero Text">Whether you are starting a new career, meeting legal requirements or re-training in gas, oil, electrics, plumbing or renewables, this section brings together everything you need to choose the right qualification and find an approved centre near you.</p>
     <div class="btn-row"><a class="btn fld" data-label="Primary CTA · hidden when empty" href="https://lclawards.co.uk/learner-zone/find-a-centre-near-you/">Find a Centre Near You</a><a class="btn ghost fld" data-label="Secondary CTA · hidden when empty" href="https://lclawards.co.uk/learner-zone/qualifications-we-offer/">Qualifications We Offer</a></div>
   </div>
 </section>
@@ -260,7 +263,8 @@ body.ann .fld::before { content: attr(data-label); position: absolute; left: -2p
         <thead><tr><th>Field</th><th>Rule</th><th>On this page</th></tr></thead>
         <tbody>
           <tr><td>Hero Title</td><td>Same as the page title. Rendered as the page H1. Always shown.</td><td>Learner Zone</td></tr>
-          <tr><td>Hero Text</td><td>New field. Plain text, one or two sentences (suggested limit: about 350 characters).</td><td>Helping you make the right training choices. Whether you are starting a new career, meeting legal requirements or re-training in gas, oil, electrics, plumbing or renewables, this section brings together everything you need to choose the right qualification and find an approved centre near you.</td></tr>
+          <tr><td>Hero Tagline</td><td>New field. One short line, shown in bold above the Hero Text. <span class="pill">Hidden when absent</span></td><td>Helping you make the right training choices</td></tr>
+          <tr><td>Hero Text</td><td>New field. Plain text, one or two sentences (suggested limit: about 350 characters).</td><td>Whether you are starting a new career, meeting legal requirements or re-training in gas, oil, electrics, plumbing or renewables, this section brings together everything you need to choose the right qualification and find an approved centre near you.</td></tr>
           <tr><td>Primary CTA</td><td>Label and link. <span class="pill">Hidden when absent</span></td><td>"Find a Centre Near You" (proposed).</td></tr>
           <tr><td>Secondary CTA</td><td>Label and link. <span class="pill">Hidden when absent</span> Suggested: only shown when a Primary CTA exists.</td><td>"Qualifications We Offer" (proposed).</td></tr>
         </tbody>
@@ -274,7 +278,7 @@ body.ann .fld::before { content: attr(data-label); position: absolute; left: -2p
     <div>
       <h3>Other implications</h3>
       <ol>
-        <li><strong>The page title is no longer repeated.</strong> The coloured heading at the top of the body copy goes, because the Hero Title replaces it. The tagline "Helping you make the right training choices" currently sits as the first line of body copy. It becomes the opening sentence of the Hero Text.</li>
+        <li><strong>The page title is no longer repeated.</strong> The coloured heading at the top of the body copy goes, because the Hero Title replaces it. The tagline "Helping you make the right training choices" currently sits as the first line of body copy. It becomes the Hero Tagline.</li>
         <li><strong>Hero images need a clear area on the left.</strong> The text now sits on the left of the image, and the existing images were cropped for text at the bottom right. The copper wire image is high contrast. It needs a darker overlay on the left so white text stays readable.</li>
         <li><strong>Section colour is kept.</strong> The hero tint, the chevron and the bar under the hero use the section colour, as on the current site. Link text uses a darker version of that colour so it passes contrast on white. Primary CTA colours follow the same rule.</li>
         <li><strong>The body needs a width limit.</strong> Without the left column, body copy would run the full page width. The mockup limits running text to about 760px.</li>
