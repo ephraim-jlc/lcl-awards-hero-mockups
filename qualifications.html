@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCL Qualifications Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: LCL Awards home aesthetic. Slate header, dark hero with teal pill CTAs, slate proof band, white/grey alternating sections, 6px cards. */
+:root {
+  --bg: #ffffff;
+  --alt: #f1f3f4;
+  --fg: #364651;
+  --muted: #5d6b75;
+  --line: #dfe3e6;
+  --card: #ffffff;
+  --link: #0d7f6f;
+  --link-hover: #0a6457;
+  --teal: #16ad97;
+  --on-teal: #1f2d36;
+  --slate: #364651;
+  --slate-deep: #2b3842;
+  --on-slate: #ffffff;
+  --chip: #e6f4f1;
+  --cta-bg: #e1f2ee;
+  --font: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #192229; --alt: #212c34; --fg: #dde5ea; --muted: #a2b2bc; --line: #33424c;
+    --card: #28343d; --link: #3fd0b9; --link-hover: #7fe3d3; --chip: #1f3a3a; --cta-bg: #1e3a3a;
+    --slate: #2b3842; --slate-deep: #1f2a31;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #192229; --alt: #212c34; --fg: #dde5ea; --muted: #a2b2bc; --line: #33424c;
+  --card: #28343d; --link: #3fd0b9; --link-hover: #7fe3d3; --chip: #1f3a3a; --cta-bg: #1e3a3a;
+  --slate: #2b3842; --slate-deep: #1f2a31;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.6; }
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+h1, h2, h3, h4 { text-wrap: balance; margin: 0; line-height: 1.2; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+.wrap > * { min-width: 0; }
+section[id] { scroll-margin-top: 72px; }
+
+/* Buttons */
+.btn { display: inline-block; border: 1.5px solid var(--teal); border-radius: 30px; padding: 12px 24px; font: 700 15px/1.3 var(--font); text-decoration: none; background: var(--teal); color: var(--on-teal); cursor: pointer; }
+.btn:hover { background: #12998a; border-color: #12998a; color: var(--on-teal); }
+.btn.ghost { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.55); }
+.btn.ghost:hover { background: rgba(255,255,255,0.12); color: #ffffff; border-color: #ffffff; }
+.btn.outline { background: transparent; color: var(--fg); border-color: var(--muted); }
+.btn.outline:hover { background: var(--alt); color: var(--fg); border-color: var(--fg); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Header */
+.site-header { background: var(--slate); color: #ffffff; }
+.site-header .wrap { max-width: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding-block: 18px 22px; }
+.logo { display: flex; align-items: center; gap: 6px; color: #ffffff; text-decoration: none; }
+.logo:hover { color: #ffffff; }
+.logo svg { width: 62px; height: 72px; flex: none; }
+.logo span { font-size: 32px; font-weight: 300; letter-spacing: 0.5px; line-height: 1; }
+.head-right { display: flex; flex-direction: column; align-items: flex-end; gap: 22px; margin-left: auto; }
+.head-icons { display: flex; gap: 14px; align-items: center; }
+.head-icons a { display: grid; place-items: center; width: 28px; height: 28px; color: #ffffff; }
+.head-icons a:hover { color: var(--teal); }
+.head-icons svg { width: 26px; height: 26px; }
+.site-header nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 30px; font-size: 16px; font-weight: 600; }
+.site-header nav a { color: #ffffff; text-decoration: none; }
+.site-header nav a:hover { color: var(--teal); }
+
+
+/* New hero pattern. Title and text sit on the image; each section keeps its own colour via --sec. */
+:root { --sec: #3b9ad9; --sec-text: #1d6fa5; --btn-bg: #3b9ad9; --btn-fg: #10212e; --ph1: #35506a; --ph2: #1f3242; --note: #ffd24a; --note-fg: #1f2d36; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --sec-text: #6cb8ee; } }
+:root[data-theme="dark"] { --sec-text: #6cb8ee; }
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: #1f2d36; color: #ffffff; font-size: 13px; }
+.topbar .wrap { max-width: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 8px; }
+.topbar b { letter-spacing: 0.04em; text-transform: uppercase; color: var(--note); }
+.topbar button { font: 700 13px var(--font); background: transparent; color: #ffffff; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 30px; padding: 6px 14px; cursor: pointer; }
+.topbar button[aria-pressed="true"] { background: var(--note); color: var(--note-fg); border-color: var(--note); }
+.topbar a { color: #ffffff; }
+
+.hero { position: relative; overflow: hidden; background: var(--slate-deep); color: #ffffff; border-bottom: 12px solid var(--sec); }
+.hero-photo { position: absolute; inset: 0; background: linear-gradient(135deg, var(--ph1), var(--ph2)); }
+.hero-photo span { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); top: 20px; max-width: 300px; text-align: right; font-size: 13px; line-height: 1.5; font-weight: 600; color: rgba(255,255,255,0.85); }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(43,56,66,0.94) 0%, rgba(43,56,66,0.82) 38%, rgba(43,56,66,0) 72%); }
+.hero-mark { position: absolute; z-index: 1; right: -30px; bottom: -50px; width: min(420px, 55vw); opacity: 0.45; pointer-events: none; }
+.hero-mark path { fill: var(--sec); }
+.hero .wrap { position: relative; z-index: 2; padding-block: 76px 84px; min-height: 380px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 38px; }
+.hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 800; max-width: 640px; }
+.hero .lead { font-size: 18px; line-height: 1.6; max-width: 540px; color: rgba(255,255,255,0.92); }
+.hero .btn { background: var(--btn-bg); border-color: var(--btn-bg); color: var(--btn-fg); }
+.hero .btn:hover { filter: brightness(0.92); color: var(--btn-fg); }
+.hero .btn.ghost { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.hero .btn.ghost:hover { background: rgba(255,255,255,0.12); filter: none; color: #ffffff; border-color: #ffffff; }
+.btn-row:not(:has(.btn)) { display: none; }
+
+.page { padding-block: 22px 130px; }
+.crumbs-page { display: flex; gap: 6px; font-size: 14px; color: var(--muted); margin-bottom: 44px; }
+.crumbs-page a { color: var(--sec-text); text-decoration: none; }
+.crumbs-page a:hover { text-decoration: underline; }
+.page .wrap { display: flex; flex-direction: column; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 40px 64px; align-items: center; }
+.prose { max-width: 760px; display: flex; flex-direction: column; gap: 20px; }
+.prose p { font-size: 17px; line-height: 1.7; }
+.prose a { color: var(--sec-text); }
+.prose a:hover { text-decoration: none; }
+.links2 { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 32px; max-width: 760px; }
+.links2 a { color: var(--sec-text); font-size: 17px; }
+.more { font-size: 14px; font-style: italic; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 18px; max-width: 760px; margin-top: 12px; }
+.charter-logo { width: 100%; max-width: 420px; justify-self: end; }
+
+/* Annotation layer */
+.ghost, .ann-block, .notes-on { display: none; }
+body.ann .ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border: 1.5px dashed var(--note); border-radius: 30px; font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.8); }
+body.ann .ann-block { display: block; }
+body.ann .notes-on { display: block; }
+body.ann .btn-row { display: flex; }
+.fld { position: relative; }
+body.ann .fld { outline: 2px dashed var(--note); outline-offset: 7px; }
+body.ann .fld::before { content: attr(data-label); position: absolute; left: -2px; bottom: 100%; margin-bottom: 11px; z-index: 5; background: var(--note); color: var(--note-fg); font: 700 11px/1 var(--font); letter-spacing: 0.04em; text-transform: uppercase; padding: 5px 8px; border-radius: 3px; white-space: nowrap; }
+.removed { border: 2px dashed #c79a00; background: rgba(255,210,74,0.14); border-radius: 6px; padding: 16px 20px; margin-bottom: 36px; max-width: 760px; font-size: 14px; }
+.removed strong { display: block; margin-bottom: 6px; }
+.removed ul { margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--muted); }
+
+.notes { background: var(--alt); padding-block: 64px 72px; border-top: 6px solid var(--note); }
+.notes .wrap { display: flex; flex-direction: column; gap: 36px; max-width: 980px; }
+.notes h2 { font-size: 28px; font-weight: 800; }
+.notes h3 { font-size: 19px; font-weight: 800; margin-bottom: 12px; }
+.notes p, .notes li { font-size: 16px; line-height: 1.65; }
+.notes ul, .notes ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
+.tablewrap { overflow-x: auto; }
+.notes table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 15px; }
+.notes th, .notes td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.notes th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.notes td:first-child { font-weight: 800; white-space: nowrap; }
+.pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 20px; background: var(--chip); color: var(--link); }
+.idx { columns: 2 260px; column-gap: 32px; }
+.idx li { break-inside: avoid; }
+.idx code { font-size: 13px; color: var(--muted); }
+@media (max-width: 720px) { .hero .wrap { padding-block: 52px 60px; } .cols { grid-template-columns: 1fr; } .charter-logo { justify-self: start; } .page { padding-block-end: 110px; } }
+
+.site-footer { position: relative; z-index: 1; margin-top: 0; }
+.foot-main { position: relative; background: var(--slate); color: #ffffff; padding-block: 80px 44px; text-align: center; }
+.foot-main .wrap { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+.foot-badge { position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); width: 132px; height: 148px; }
+.foot-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 40px; font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; }
+.foot-contact a { text-decoration: none; }
+.foot-contact .tel { color: #ffffff; }
+.foot-contact .mail { color: var(--teal); }
+.foot-contact a:hover { text-decoration: underline; }
+.foot-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 42px; font-size: 17px; font-weight: 700; }
+.foot-nav a { color: #ffffff; text-decoration: none; }
+.foot-nav a:hover { color: var(--teal); }
+.foot-legal { font-size: 15px; line-height: 1.7; max-width: 880px; }
+.foot-base { background: var(--bg); color: var(--muted); font-size: 14px; padding-block: 24px; }
+.foot-base .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; }
+.foot-base nav { display: flex; gap: 24px; }
+.foot-base a { color: var(--muted); text-decoration: none; }
+.foot-base a:hover { color: var(--fg); text-decoration: underline; }
+
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap">
+  <span><a href="./">All mockups</a> &nbsp;&middot;&nbsp; <b>Design mockup</b> &nbsp;New hero pattern applied to Qualifications</span>
+  <button type="button" id="annToggle" aria-pressed="true">Annotations on</button>
+</div></div>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="https://lclawards.co.uk/" aria-label="LCL Awards home">
+      <svg viewBox="0 0 62 72" fill="none" aria-hidden="true"><path d="M31 3 56 17v30L31 61 6 47V17Z" stroke="#ffffff" stroke-width="5"/><path d="M17 56l14 8 14-8" stroke="#16AD97" stroke-width="5"/><text x="31" y="39" text-anchor="middle" font-family="Figtree, sans-serif" font-size="19" font-weight="800" fill="#ffffff">LCL</text></svg>
+      <span>AWARDS</span>
+    </a>
+    <div class="head-right">
+      <div class="head-icons">
+        <a href="https://lclawards.co.uk/learner-zone/find-a-centre-near-you" aria-label="Find a centre"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 11 4l8 7M5.500 9.500V19h4M16.500 20a3.500 3.500 0 1 0 0-7 3.500 3.500 0 0 0 0 7ZM19 19.500l2.500 2"/></svg></a>
+        <a href="https://www.linkedin.com/company/lcl-awards" aria-label="LCL Awards on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.500V20M4 5v.5M9 20v-10.500M9 14c0-2.500 1.500-4.500 4-4.500s3.500 1.800 3.500 4V20M21 20v-6"/></svg></a>
+      </div>
+      <nav aria-label="Main">
+        <a href="https://lclawards.co.uk/learner-zone/">LEARNER ZONE</a>
+        <a href="https://lclawards.co.uk/centre-zone/">CENTRE ZONE</a>
+        <a href="https://lclawards.co.uk/qualifications/">QUALIFICATIONS</a>
+        <a href="https://lclawards.co.uk/inclusivity-charter/">INCLUSIVITY</a>
+        <a href="https://lclawards.co.uk/contact-us">CONTACT US</a>
+        <a href="https://lclawards.co.uk/">ABOUT US</a>
+        <a href="https://lclawards.co.uk/">NEWS</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<main>
+<section class="hero" aria-label="Page hero">
+  <div class="hero-photo"><span>[Hero photo: aerial view of offshore wind turbines, as on the current page]</span></div>
+  <svg class="hero-mark" viewBox="0 0 815.99 594.16" aria-hidden="true"><path d="M816,0,172.42,371.57,0,272V494.62l172.42,99.54L816,222.57Z"/></svg>
+  <div class="wrap">
+    <h1 class="fld" data-label="Hero Title · same as page title (H1)">Qualifications</h1>
+    <p class="lead fld" data-label="Hero Text">LCL Awards specialises in qualifications and certification for the Building Services Engineering sector, from gas, electrical and plumbing to renewables, heating design and refrigeration. Explore our regulated qualifications by sector, then find an approved centre where you can train or be assessed.</p>
+    <div class="btn-row"><a class="btn fld" data-label="Primary CTA · hidden when empty" href="https://lclawards.co.uk/learner-zone/find-a-centre-near-you/">Find an Approved Centre</a><span class="ghost fld" data-label="Secondary CTA · empty, so hidden">Secondary CTA (empty)</span></div>
+  </div>
+</section>
+<div class="page"><div class="wrap">
+  <nav class="crumbs-page" aria-label="Breadcrumb"><a href="https://lclawards.co.uk/">Home</a> <span aria-hidden="true">/</span> <span>Qualifications</span></nav>
+  <div class="removed ann-block"><strong>Removed: left-hand section index (11 links to other pages). See developer notes below.</strong><ul><li>Gas Qualifications</li><li>Electrical Qualifications</li><li>Plumbing Qualifications</li><li>Heating Qualifications</li><li>Renewables Qualifications</li><li>Oil Qualifications</li><li>Heating Design Qualifications</li><li>Gas Safety Management &amp; Auditing Qualifications</li><li>Smart Metering Qualifications</li><li>Solid Fuel &amp; Biomass Qualifications</li><li>Refrigeration &amp; F-Gas Qualifications</li></ul></div>
+  <div class="prose">
+    <p>LCL Awards specialises in delivering qualifications and certification services for the Buildings Services Engineering sector, including:</p>
+  </div>
+  <ul class="links2" style="margin-top:20px">
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/gas-qualifications/">Gas Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/electrical-qualifications/">Electrical Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/plumbing-qualifications/">Plumbing Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/heating-qualifications/">Heating Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/renewables-qualifications/">Renewables Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/oil-qualifications/">Oil Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/heating-design-qualifications/">Heating Design Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/gas-safety-management-auditing-qualifications/">Gas Safety Management &amp; Auditing Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/smart-metering-qualifications/">Smart Metering Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/solid-fuel-biomass-qualifications/">Solid Fuel &amp; Biomass Qualifications</a></li>
+    <li><a href="https://lclawards.co.uk/qualifications/sectors/refrigeration-f-gas-qualifications/">Refrigeration &amp; F-Gas Qualifications</a></li>
+  </ul>
+  <p class="more">[The rest of the page continues unchanged: accreditation, assessments and fees.]</p>
+</div></div>
+</main>
+<footer class="site-footer">
+  <div class="foot-main">
+    <svg class="foot-badge" viewBox="0 0 132 148" fill="none" aria-hidden="true">
+      <path d="M66 2 128 37v74L66 146 4 111V37Z" fill="#364651"/>
+      <path d="M66 24 106 47v50L66 120 26 97V47Z" stroke="#ffffff" stroke-width="5"/>
+      <path d="M44 112l22 12 22-12" stroke="#16AD97" stroke-width="7" stroke-linecap="butt"/>
+      <text x="66" y="82" text-anchor="middle" font-family="Figtree, sans-serif" font-size="28" font-weight="800" fill="#ffffff">LCL</text>
+      <text x="66" y="95" text-anchor="middle" font-family="Figtree, sans-serif" font-size="7" font-weight="700" letter-spacing="2" fill="#ffffff">AWARDS</text>
+    </svg>
+    <div class="wrap">
+      <div class="foot-contact">
+        <a class="tel" href="tel:+442088392439">Tel: 020 8839 2439</a>
+        <a class="mail" href="mailto:enquiries@LCLawards.co.uk">enquiries@LCLawards.co.uk</a>
+      </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="https://lclawards.co.uk/learner-zone/">LEARNER ZONE</a>
+        <a href="https://lclawards.co.uk/centre-zone/">CENTRE ZONE</a>
+        <a href="https://lclawards.co.uk/qualifications/">QUALIFICATIONS</a>
+        <a href="https://lclawards.co.uk/contact-us">CONTACT US</a>
+      </nav>
+      <p class="foot-legal">LCL Awards, Unit 1, Belvue Business Centre, Belvue Road, Northolt, Middlesex, UB5 5QQ<br>LCL Awards is a trading name of Logic Certification Ltd. Registered in England. Company No: 4615993</p>
+    </div>
+  </div>
+  <div class="foot-base">
+    <div class="wrap">
+      <span>Copyright © LCL Awards 2026. All rights reserved</span>
+      <nav aria-label="Legal"><a href="https://lclawards.co.uk/terms-of-use/">Terms of Use</a><a href="https://lclawards.co.uk/privacy-policy/">Privacy Policy</a></nav>
+    </div>
+  </div>
+</footer>
+<section class="notes notes-on" aria-label="Developer notes">
+  <div class="wrap">
+    <div>
+      <h2>Developer notes</h2>
+      <p>This block is not part of the design. It explains what the new hero means for this page. Use the toggle at the top of the page to hide the annotations.</p>
+    </div>
+    <div>
+      <h3>Hero fields</h3>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Field</th><th>Rule</th><th>On this page</th></tr></thead>
+        <tbody>
+          <tr><td>Hero Title</td><td>Same as the page title. Rendered as the page H1. Always shown.</td><td>Qualifications</td></tr>
+          <tr><td>Hero Text</td><td>New field. Plain text, one or two sentences (suggested limit: about 350 characters).</td><td>LCL Awards specialises in qualifications and certification for the Building Services Engineering sector, from gas, electrical and plumbing to renewables, heating design and refrigeration. Explore our regulated qualifications by sector, then find an approved centre where you can train or be assessed.</td></tr>
+          <tr><td>Primary CTA</td><td>Label and link. <span class="pill">Hidden when absent</span></td><td>"Find an Approved Centre", linking to the Find a Centre tool (proposed).</td></tr>
+          <tr><td>Secondary CTA</td><td>Label and link. <span class="pill">Hidden when absent</span> Suggested: only shown when a Primary CTA exists.</td><td>Empty, so no button is shown.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div>
+      <h3>Section index removed from this page</h3>
+      <p>These are links to eleven sector pages. This page already repeats all eleven as a list in the body, so no content is lost here. The list becomes the main navigation, so it should be made more prominent (for example as cards with a short description per sector).</p>
+      <ul class="idx"><li>Gas Qualifications <code>/qualifications/sectors/gas-qualifications/</code></li><li>Electrical Qualifications <code>/qualifications/sectors/electrical-qualifications/</code></li><li>Plumbing Qualifications <code>/qualifications/sectors/plumbing-qualifications/</code></li><li>Heating Qualifications <code>/qualifications/sectors/heating-qualifications/</code></li><li>Renewables Qualifications <code>/qualifications/sectors/renewables-qualifications/</code></li><li>Oil Qualifications <code>/qualifications/sectors/oil-qualifications/</code></li><li>Heating Design Qualifications <code>/qualifications/sectors/heating-design-qualifications/</code></li><li>Gas Safety Management &amp; Auditing Qualifications <code>/qualifications/sectors/gas-safety-management-auditing-qualifications/</code></li><li>Smart Metering Qualifications <code>/qualifications/sectors/smart-metering-qualifications/</code></li><li>Solid Fuel &amp; Biomass Qualifications <code>/qualifications/sectors/solid-fuel-biomass-qualifications/</code></li><li>Refrigeration &amp; F-Gas Qualifications <code>/qualifications/sectors/refrigeration-f-gas-qualifications/</code></li></ul>
+    </div>
+    <div>
+      <h3>Other implications</h3>
+      <ol>
+        <li><strong>The page title is no longer repeated.</strong> The coloured heading at the top of the body copy goes, because the Hero Title replaces it. The blue "Qualifications" heading above the intro goes.</li>
+        <li><strong>Hero images need a clear area on the left.</strong> The text now sits on the left of the image, and the existing images were cropped for text at the bottom right. The wind turbine image works with text on the left if it is darkened, but the blue overlay and chevron need to stay clear of the text.</li>
+        <li><strong>Section colour is kept.</strong> The hero tint, the chevron and the bar under the hero use the section colour, as on the current site. Link text uses a darker version of that colour so it passes contrast on white. Primary CTA colours follow the same rule.</li>
+        <li><strong>The body needs a width limit.</strong> Without the left column, body copy would run the full page width. The mockup limits running text to about 760px.</li>
+        <li><strong>The hero can be shorter.</strong> The current hero is about half the height of a laptop screen. The mockup uses about 420px, which brings the first paragraph into view.</li>
+        <li><strong>Breadcrumbs stay</strong> directly under the hero.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var b = document.getElementById("annToggle");
+  document.body.classList.add("ann");
+  b.addEventListener("click", function () {
+    var on = document.body.classList.toggle("ann");
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+    b.textContent = on ? "Annotations on" : "Annotations off";
+  });
+})();
+</script>
+
+</body>
+</html>

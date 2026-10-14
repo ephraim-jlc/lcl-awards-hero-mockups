@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCL Awards Hero Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&display=swap">
+<style>
+:root { --bg:#ffffff; --fg:#364651; --muted:#5d6b75; --line:#dfe3e6; --card:#ffffff; --link:#0d7f6f; --slate:#364651; }
+@media (prefers-color-scheme: dark) { :root { --bg:#192229; --fg:#dde5ea; --muted:#a2b2bc; --line:#33424c; --card:#28343d; --link:#3fd0b9; --slate:#2b3842; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:"Figtree",system-ui,sans-serif; line-height:1.6; }
+header { background:var(--slate); color:#fff; padding:40px 16px; }
+.wrap { max-width:1000px; margin:0 auto; }
+h1 { margin:0 0 10px; font-size:clamp(30px,4.5vw,44px); font-weight:800; line-height:1.15; }
+header p { margin:0; max-width:640px; color:rgba(255,255,255,0.88); font-size:17px; }
+main { padding:48px 16px 72px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+.card { display:flex; flex-direction:column; gap:10px; padding:24px; background:var(--card); border:1px solid var(--line); border-top:8px solid var(--c); border-radius:6px; color:var(--fg); text-decoration:none; }
+.card:hover { border-color:var(--c); }
+.card h2 { margin:0; font-size:22px; font-weight:800; }
+.card p { margin:0; flex-grow:1; color:var(--muted); font-size:15px; }
+.card span { font-weight:700; color:var(--link); }
+.notes { margin-top:48px; max-width:720px; }
+.notes h2 { font-size:20px; margin:0 0 10px; }
+.notes ul { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; }
+:focus-visible { outline:3px solid #16ad97; outline-offset:3px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>New hero pattern: page mockups</h1>
+<p>Four existing LCL Awards pages redrawn with the new hero, where the title and text sit on the image. For the developer, to show what adopting the pattern means for the rest of the site.</p>
+</div></header>
+<main><div class="wrap">
+<div class="grid"><a class="card" href="about-us.html" style="--c:#16ad97"><h2>About Us</h2><p>Teal section. Hero with text only, no CTAs. Shows the section index removed (10 links).</p><span>Open mockup &rarr;</span></a><a class="card" href="qualifications.html" style="--c:#3b9ad9"><h2>Qualifications</h2><p>Blue section. Hero with a primary CTA only. Sector list already in the body.</p><span>Open mockup &rarr;</span></a><a class="card" href="learner-zone.html" style="--c:#b02a4a"><h2>Learner Zone</h2><p>Crimson section. Hero with both CTAs. Longest removed index (14 links).</p><span>Open mockup &rarr;</span></a><a class="card" href="inclusivity-charter.html" style="--c:#16ad97"><h2>Inclusivity Charter</h2><p>Teal section. Hero with both CTAs. No index today; two-column body.</p><span>Open mockup &rarr;</span></a></div>
+<div class="notes">
+<h2>How to read the mockups</h2>
+<ul>
+<li>Each page opens with annotations on. Yellow labels mark the four hero fields: Hero Title, Hero Text, Primary CTA and Secondary CTA. A CTA left empty is hidden.</li>
+<li>Use the toggle at the top of a page to switch annotations off and see the clean design.</li>
+<li>Developer notes at the bottom of each page cover the implications, including the removed section index.</li>
+<li>Photos are placeholders. Body copy is taken from the live pages where it was available.</li>
+</ul>
+</div>
+</div></main>
+</body>
+</html>
